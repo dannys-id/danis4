@@ -23,7 +23,7 @@ net1 = cv2.dnn.readNetFromCaffe(args["prototxt"], args["model"])
 
 print("[INFO] loading model...")
 print("[INFO] starting video stream...")
-cap = cv2.VideoCapture("rtsp://admin:RPBQIG@192.168.2.100:554/")
+cap = cv2.VideoCapture("rtsp://admin:RPBQIG@192.168.2.101:554/")
 #ap = cv2.VideoCapture(0)
 time.sleep(2.0)
 fps = FPS().start()
@@ -77,7 +77,7 @@ while True:
 					# print(scores)
 					class_id = np.argmax(scores)
 					confidence = scores[class_id]
-					if confidence > 0.7:
+					if confidence > 0.6:
 						center_x = int(detection[0] * width)
 						center_y = int(detection[1] * height)
 						w = int(detection[2] * width)
